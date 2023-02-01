@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>白羽</title>
+
+    <link
+            rel="stylesheet"
+            href="../assets/vendor/bootstrap5.0alpha1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../assets/styles/fy.css"/>
+    <link rel="stylesheet" href="../assets/styles/project.css"/>
+
+    <link rel="Shortcut Icon" href="../assets/images/favicon.ico" type="image/x-icon"/>
+</head>
+<body class="p-body">
+<div class="p-header">
+    <div class="p-header-left">
+        <span>白羽</span>
+        <p>半结构化数据可视化建模</p>
+    </div>
+    <div class="p-header-title">
+        <span id="upload" class="title active">上传</span>
+        <div class="btn-icon">
+            <i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i>
+        </div>
+        <span id="design" class="title">设计</span>
+        <div class="btn-icon">
+            <i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i>
+        </div>
+        <span id="overview" class="title">预览</span>
+    </div>
+    <div class="p-header-right">
+        <div class="setting-btn goBack"><img src="../assets/images/upload/shu.png" alt="" /></div>
+    </div>
+</div>
+<div class="p-content">
+    <div class="step step-one card-body">
+        <img id="uploadFile" src="../assets/images/upload/upload.png" alt="">
+        <div class="p-content-bottom">
+            <p class="p-content-tips">点击添加文件</p><span>或</span><p class="p-content-tips">拖拽到此区域</p>
+        </div>
+    </div>
+</div>
+<script>window.$ = window.jQuery = require('../assets/scripts/jquery.min')</script>
+<script src="../assets/vendor/bootstrap5.0alpha1/js/bootstrap.min.js"></script>
+<script src="../assets/scripts/short-unique-id.min.js"></script>
+<script src="../assets/scripts/storage.js"></script>
+<script src="../assets/scripts/common.js"></script>
+
+<script src="../assets/scripts/newFile/upload.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,306 @@
+ <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>白羽 - 提取模型设计</title>
+    <link rel="stylesheet" href="../../assets/vendor/bootstrap5.0alpha1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../assets/styles/fy.css" />
+    <link rel="stylesheet" href="../../assets/template/styles/extractor.css" />
+    <link rel="stylesheet" href="../../assets/template/styles/common.css">
+    <link rel="Shortcut Icon" href="../../assets/images/favicon.ico" type="image/x-icon" />
+    <style>
+        .disabledd{
+            disabled:disabled;
+        }
+        #btnCreateNewModel{
+            display: none;
+        }
+        .attributeShow{
+            display: none;
+            line-height: 30px;
+        }
+        #indicatorTypeChoose{
+            /*line-height: 30px;*/
+            /*height:30px;*/
+            margin-bottom:10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="alertBox" class="alert alert-danger">
+        <strong>该字段不可以设置规定值</strong>
+    </div>
+    <div id="haveFile" class="none">
+        <div class="l-header fy-flex fy-between fy-middle">
+            <div>
+            </div>
+            <div>
+                <div id="boxNextCreateNewModel" class="d-inline-block">
+                    <button id="btnDataMo" class="btn btn-secondary ml-2">导入数据文件</button>
+                    <button id="btnCreateNewModel" class="btn btn-secondary ml-2">新建模型</button>
+                     <button id="btnEditFile" class="btn btn-secondary ml-2">编辑文件</button>
+                     <button id="btnNoEditFile" class="btn btn-secondary ml-2">修改模版</button>
+                </div>
+                <button class="btn btn-secondary input-group-append  ml-2" id="webserviceBtns">webservice服务配置</button>
+                <button class="btn btn-secondary iconfont  ml-4" id="btnOpenProjFolder">&#xe6af; 项目文件夹</button>
+                <button class="btn btn-secondary iconfont  ml-2" id="btnArchive">&#xe662; 保存上载</button>
+            </div>
+        </div>
+        <div id="tblHtml" class="fy-flex-col">
+            <div class="extractor_table"></div>
+        </div>
+        <div class="l-panel fy-flex fy-middle fy-center">
+            <div id="panelContent">
+                <ul class="f-model-list list-group mb-4">
+                </ul>
+                <div
+                    class="p-clip p-clip-start p-clip-form p-clip-table p-clip-3dtable p-clip-freelink p-clip-simplefreelink p-clip-mdtable mb-3">
+                    <input class="form-check-input" type="radio" id="btnTagStartCell" value="start" name="panelRadio">
+                    <label class="form-check-label" for="btnTagStartCell">标记开始点位置
+                        <i class="iconfont" data-toggle="tooltip" title="鼠标左键标记，右键取消标记">&#xe646;</i></label>
+                </div>
+                <div class="p-clip p-clip-form p-clip-table p-clip-3dtable form-check mb-3">
+                    <input class="form-check-input" type="radio" id="btnTagKeyCell" value="key" name="panelRadio">
+                    <label class="form-check-label" for="btnTagKeyCell">标记行表头</label>
+                </div>
+                <div class="p-clip p-clip-freelink p-clip-simplefreelink p-clip-mdtable form-check mb-3">
+                    <input class="form-check-input" type="radio" id="btnTagLink" value="link" name="panelRadio">
+                    <label class="form-check-label" for="btnTagLink">进入连接状态</label>
+                </div>
+                <div class="p-clip p-clip-freelink  p-clip-mdtable form-check mb-3">
+                    <input class="form-check-input" type="radio" id="btnTagLink1" value="link1" name="panelRadio">
+                    <label class="form-check-label" for="btnTagLink1">终止连接</label>
+                </div>
+                <div class="p-clip p-clip-freelink p-clip-simplefreelink p-clip-mdtable form-check mb-3">
+                    <input class="form-check-input" type="radio" id="btnTagLink2" value="link2" name="panelRadio">
+                    <label class="form-check-label" for="btnTagLink2">标记检测值列</label>
+                </div>
+                <div class="p-clip mb-3">
+                    <input class="form-check-input" type="radio" id="btnTagValueCell" value="value" name="panelRadio">
+                    <label class="form-check-label" for="btnTagValueCell">标记值</label>
+                </div>
+                <div class="p-clip mb-3 p-clip-form p-clip-table p-clip-3dtable form-check">
+                    <input class="form-check-input" type="radio" id="btnTagValueRangeStart0" value="valueRangeStart0"
+                        name="panelRadio">
+                    <label class="form-check-label" for="btnTagValueRangeStart0">标记检测值列</label>
+                </div>
+                <div class="p-clip mb-3 p-clip-form p-clip-table p-clip-3dtable form-check">
+                    <input class="form-check-input" type="radio" id="btnTagValueRangeStart1" value="valueRangeStart1"
+                           name="panelRadio">
+                    <label class="form-check-label" for="btnTagValueRangeStart1">标记记录项列</label>
+                </div>
+                <div class="p-clip p-clip-form p-clip-table p-clip-mdtable  p-clip-3dtable form-check mb-3">
+                    <input class="form-check-input" type="radio" id="btnTagValueRangeStart" value="valueRangeStart"
+                        name="panelRadio">
+                    <label class="form-check-label" for="btnTagValueRangeStart">标记值范围开始</label>
+                </div>
+                <div class="p-clip p-clip-form p-clip-table p-clip-mdtable  p-clip-3dtable form-check mb-3">
+                    <input class="form-check-input" type="radio" id="btnTagValueRange" value="valueRangeEnd"
+                        name="panelRadio">
+                    <label class="form-check-label" for="btnTagValueRange">标记值范围结束</label>
+                </div>
+                <div class="p-clip p-clip-freelink p-clip-simplefreelink p-clip-mdtable form-check mb-3">
+                    <input class="form-check-input" type="radio" id="btnTagUnlink" value="unlink" name="panelRadio">
+                    <label class="form-check-label" for="btnTagUnlink">选中字段并删除连接</label>
+                </div>
+                <div class="p-clip p-clip-form p-clip-table p-clip-mdtable  p-clip-3dtable form-check mb-3">
+                    <input class="form-check-input" type="radio" id="btnTagValueRange1" value="chooseAttribute"
+                           name="panelRadio">
+                    <label class="form-check-label" for="btnTagValueRange1">指标属性</label>
+                </div>
+                <div class="attributeShow p-clip">
+                    <div class="fy-flex">
+                        <div style="width:90px">指标类型：</div>
+                        <div style="width:calc(100% - 90px)">
+                            <select id="indicatorTypeChoose" class="form-control" placeholder="指标类型选择" style="width:100%">
+                                <option value="">指标类型选择</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="fy-flex">
+                        <div style="width:90px">试验类型</div>
+                        <div style="width:calc(100% - 90px)">
+                            <select id="testTypeChoose" class="form-control" placeholder="试验类型选择" style="width:100%">
+                                <option value="">试验类型选择</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div id="parse" class="p-clip p-clip-mdtable mb-4 pr-3">
+                    <button class="btn btn-sm btn-primary" id="parse_table">解析</button>
+                </div>
+                <div id="parseTable" class="p-clip mb-4 pr-3 p-clip-table">
+                    <button class="btn btn-sm btn-primary" id="parse_common_table">解析</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="noFile" class="none">
+        <div class="l-body fy-flex none" style="height:100vh">
+            <section class="card card-dark fy-bigger-enabled">
+                <div class="card-body fy-flex fy-middle fy-center">
+                    <div id="tipCheck" class="fy-hide tip text-center text-muted">
+                        <div class="iconfont fy-text-3xl mb-2">&#xe61f;</div>
+                        <div class="fy-text-lg mb-1">正在检查数据文件...</div>
+                    </div>
+                    <div id="tipUpload" class=" tip text-center text-muted">
+                        <div class="iconfont fy-text-3xl mb-2">&#xe7c1;</div>
+                        <div class="fy-text-lg mb-1">请拖拽文件到这里或点击上传</div>
+                        <div class="fy-text-sm">
+                            支持的格式：Excel(.xls、.xlsx、.sylk)、CSV UTF-8(.csv)
+                        </div>
+                    </div>
+                    <div id="tipProcess" class="fy-hide tip text-center text-muted">
+                        <div class="iconfont fy-text-3xl mb-2">&#xe68a;</div>
+                        <div class="fy-text-lg mb-1">正在处理数据文件...</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="modal fade" id="webserviceWindow"  role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header fy-center">
+                    <h5 class="modal-title" id="webserviceModalLabel">需填写webservice服务</h5>
+                </div>
+                <div class="modal-body">
+                    <input class="form-control form-control-lg" style="margin-bottom:10px" placeholder="请填写用户名"
+                        type="text" id="webserviceHttpUserName">
+                    <input class="form-control form-control-lg" style="margin-bottom:10px" placeholder="请填写密码"
+                        type="text" id="webserviceHttpPassWord">
+                    <input class="form-control form-control-lg" placeholder="请填写webservice服务" type="text"
+                        id="webserviceHttp">
+                    <div class="mt-4">
+                        <select class="form-select form-select-lg" id="selectWeb">
+                            <option value="">请选择webservice服务</option>
+                            <option value="账号1">http://baiyu:Baiyu123456@pdm.149.sast.casc/Windchill/servlet/RPC?CLASS=com.infoengine.soap</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer fy-center fy-between">
+                    <span> </span>
+                    <button id="lsWebservice" type="button" class="btn btn-primary">保 存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modalCreateNew" data-backdrop="static" data-keyboard="false"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">新建模型</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="ipt_model_name" class="form-label">模型名称</label>
+                        <input type="text" class="form-control" id="ipt_model_name" placeholder="输入模型名称">
+                    </div>
+                    <div class="mb-3">
+                        <label for="sel_model_type" class="form-label">模型类型</label>
+                        <select class="form-select" id="sel_model_type">
+                            <option value="table">表格型</option>
+                            <option value="freelink">自由连接型</option>
+                            <option value="simplefreelink">表单型</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                    <button type="button" id="btnCreateNew" class="btn btn-primary">好了</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modalCreateEdit" data-backdrop="static" data-keyboard="false"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabels">模型名称修改</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="ipt_model_name" class="form-label">模型名称</label>
+                        <input type="text" class="form-control" id="edit_model_name" placeholder="输入模型名称">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                    <button type="button" id="btnCreateEdit" class="btn btn-primary">好了</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="myBoxCanvas"></div>
+    <script>
+        window.$ = window.jQuery = require('../../assets/scripts/jquery.min')
+        window.html2canvas =  require('../../assets/template/scripts/html2canvas')
+    </script>
+    <script src="../../assets/scripts/popper.min.js"></script>
+    <script src="../../assets/vendor/bootstrap5.0alpha1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../assets/template/scripts/bootstrap.js"></script>
+    <script src="../../assets/scripts/short-unique-id.min.js"></script>
+    <script src="../../assets/scripts/storage.js"></script>
+    <script src="../../assets/scripts/common.js"></script>
+    <script src="../../assets/scripts/anim-event.min.js"></script>
+    <script src="../../assets/scripts/leader-line.min.js"></script>
+    <script src="../../assets/scripts/sha.js"></script>
+    <script src="../../assets/vendor/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="../../assets/template/scripts/json_data.js"></script>
+    <script src="../../assets/template/scripts/common.js"></script>
+    <script src="../../assets/template/scripts/commonFunc.js"></script>
+    <script src="../../assets/template/scripts/returnBound.js"></script>
+    <script src="../../assets/template/scripts/commonData.js"></script>
+
+    <script src="../../assets/template/scripts/templatePage.js"></script>
+    <script>
+        if (window.LS.get('webservicePathSchema')) {
+
+        } else {
+            window.LS.set('webservicePathSchema',
+                'http://baiyu:Baiyu123456@pdm.149.sast.casc/Windchill/servlet/RPC?CLASS=com.infoengine.soap')
+        }
+
+        $(document).on('change',"#selectWeb",function () {
+            if($(this).val()=='账号1'){
+                $("#webserviceHttp").val('http://baiyu:Baiyu123456@pdm.149.sast.casc/Windchill/servlet/RPC?CLASS=com.infoengine.soap')
+                $("#webserviceHttpUserName").val('baiyu')
+                $("#webserviceHttpPassWord").val('Baiyu123456')
+            }else if($(this).val()=='账号2'){
+                $("#webserviceHttp").val('http://baiyu:Baiyu123456@pdmtest.149.sast.casc/Windchill/servlet/RPC?CLASS=com.infoengine.soap')
+                $("#webserviceHttpUserName").val('baiyu')
+                $("#webserviceHttpPassWord").val('Baiyu123456')
+            } else {
+                $("#webserviceHttp").val('')
+                $("#webserviceHttpUserName").val('')
+                $("#webserviceHttpPassWord").val('')
+            }
+        })
+        $(document).on('click', "#lsWebservice", function () {
+            window.LS.set('webservicePathSchema', $("#webserviceHttp").val())
+            window.LS.set('webservicePathSchemaUserName', $("#webserviceHttpUserName").val())
+            window.LS.set('webservicePathSchemaPassWord', $("#webserviceHttpPassWord").val())
+            $("#webserviceWindow").modal('hide')
+        })
+        $(document).on('click', "#webserviceBtns", function () {
+            $("#webserviceWindow").modal('show')
+            if (window.LS.get('webservicePathSchema')) {
+                $("#webserviceHttp").val(window.LS.get('webservicePathSchema'))
+                $("#webserviceHttpUserName").val(window.LS.get('webservicePathSchemaUserName'))
+                $("#webserviceHttpPassWord").val(window.LS.get('webservicePathSchemaPassWord'))
+            }
+        })
+    </script>
+</body>
+
+</html>

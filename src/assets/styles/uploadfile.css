@@ -1,0 +1,22 @@
+
+.l-body{
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    right: 20px;
+    bottom: 20px;
+}
+#htmlout{
+    /* display: none; */
+}
+.ttop{
+    margin-left:15px;
+    margin-top:12px;
+}
+.l-body1{
+     position: fixed;
+     left: 20px;
+     top: 60px;
+     right: 20px;
+     bottom: 20px;
+ }

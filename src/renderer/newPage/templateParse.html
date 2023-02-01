@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>白羽 - 提取模型设计</title>
+        <link rel="stylesheet" href="../../assets/vendor/bootstrap5.0alpha1/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="../../assets/styles/fy.css"/>
+        <link rel="stylesheet" href="../../assets/styles/parse.css"/>
+        <link rel="stylesheet" href="../../assets/vendor/bootstrap-table/bootstrap-table.min.css">
+        <link rel="Shortcut Icon" href="../../assets/images/favicon.ico" type="image/x-icon"/>
+        <link rel="stylesheet" href="../../assets/template/styles/common.css">
+        <style>
+            #tableDataParse1 {
+                color:white;
+            }
+            #tableDataParse1 thead tr{
+                background: rgba(96, 166, 255,1);
+            }
+            #tableDataParse1 tr{
+                padding:0;
+                white-space: nowrap;
+            }
+            #tableDataParse1 th{
+                padding:0;
+            }
+            #tableDataParse1 td{
+                padding:0;
+            }
+            #tableDataParse1.table-hover>tbody>tr:hover{
+                color:white;
+            }
+            #tableDataParse1 .btnStandard{
+                background: #FFC420;
+                line-height:30px;
+                height:30px;
+                white-space: nowrap;
+            }
+            #tableDataParse1 .btnDefault{
+                line-height:30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="l-header fy-flex fy-between fy-middle p-2">
+            <a href="javascript:void(0);" class="btn btn-outline-secondary iconfont" id="btn_return">&#xe619; 返回</a>
+            <div></div>
+        </div>
+        <div class="l-body fy-flex">
+            <section class="card card-dark fy-bigger-enabled">
+                <div class="card-body fy-middle fy-center fy-hide"></div>
+                <div id="htmlout" class="fy-hide"></div>
+                <div id="htmloutPre" class="fy-hide"></div>
+                <div id="renderTable" class="fy-hide">
+                    <button class="btn btn-sm btn-primary" id="exportExcel">导出表格</button>
+                    <table></table>
+                </div>
+                <div id="renderFreeLink" class="fy-hide"></div>
+                <div id="renderGraph">
+                    <div id="attr" class="fy-hide"></div>
+                </div>
+                <div id="renderData" class="fy-hide" style="display: none;padding:10px">
+                    <div style="text-align:left;margin-bottom:10px">
+                        <button class="btn btn-sm btn-primary" id="exportExcel1">导出表格</button>
+                        <button class="btn btn-sm btn-primary mr-2" id="exportExcel3">导出json文件</button>
+                        <button class="btn btn-sm btn-primary mr-2" id="exportExcel2">导出graphData文件</button>
+                    </div>
+                    <div class="title fy-hide">结构化数据:
+                    </div>
+                    <table id="tableDataParse1" style="color: #FFF;"></table>
+                </div>
+                <div id="renderOrigin" class="fy-hide" style="display: none;"></div>
+            </section>
+        </div>
+        <div class="modal fade" id="modalSelect" data-backdrop="static" data-keyboard="false"
+             aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">选择字段</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                        <button type="button" id="btnSelect" class="btn btn-primary">确定选择</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>window.$ = window.jQuery = require("../../assets/scripts/jquery.min");</script>
+        <script src="../../assets/vendor/bootstrap5.0alpha1/js/bootstrap.min.js"></script>
+        <script src="../../assets/scripts/sha.js"></script>
+        <script src="../../assets/vendor/bootstrap-table/bootstrap-table.min.js"></script>
+        <script src="../../assets/scripts/storage.js"></script>
+        <script src="../../assets/scripts/common.js"></script>
+        <script src="../../assets/template/scripts/commonFunc.js"></script>
+        <script src="../../assets/template/scripts/json_data.js"></script>
+        <script src="../../assets/template/scripts/returnBound.js"></script>
+        <script src="../../assets/template/scripts/commonExport.js"></script>
+        <script src="../../assets/template/scripts/templateParse.js"></script>
+    </body>
+</html>

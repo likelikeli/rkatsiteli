@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>白羽 - 提取模型设计</title>
+        <link rel="stylesheet" href="../../assets/vendor/bootstrap5.0alpha1/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="../../assets/styles/fy.css"/>
+        <link rel="stylesheet" href="../../assets/styles/parse.css"/>
+        <link rel="stylesheet" href="../../assets/vendor/bootstrap-table/bootstrap-table.min.css">
+        <link rel="Shortcut Icon" href="../../assets/images/favicon.ico" type="image/x-icon"/>
+        <link rel="stylesheet" href="../../assets/template/styles/common.css">
+        <style>
+            #tableDataParse {
+                color:white;
+            }
+            #tableDataParse thead tr{
+                background: rgba(96, 166, 255,1);
+            }
+            #tableDataParse tr{
+                padding:0;
+            }
+            #tableDataParse th{
+                padding:0;
+            }
+            #tableDataParse td{
+                padding:0;
+            }
+            #tableDataParse.table-hover>tbody>tr:hover{
+                color:white;
+            }
+            #htmlout .pagination-detail{
+               display: none;
+            }
+            #tableDataParse .btnStandard{
+                background: #FFC420;
+                line-height:30px;
+                height:30px;
+                white-space: nowrap;
+            }
+            #tableDataParse .btnDefault{
+                line-height:30px;
+            }
+            #htmlout .fixed-table-pagination>.pagination{
+                float: none !important;
+            }
+            #htmlout .pagination{
+                margin:auto;
+                margin-top:10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="l-header fy-flex fy-between fy-middle p-2">
+            <a href="javascript:void(0);" class="btn btn-outline-secondary iconfont" id="btn_return">&#xe619; 返回</a>
+            <div></div>
+        </div>
+        <div class="l-body fy-flex">
+            <section class="card card-dark fy-bigger-enabled">
+                <div id="htmlout" class="m-3">
+                    <div class="mb-3">
+                        <button class="btn btn-sm btn-primary mr-2" id="exportExcel1">导出表格</button>
+                        <button class="btn btn-sm btn-primary mr-2" id="exportExcel2">导出json文件</button>
+                    </div>
+                    <table id="tableDataParse"></table>
+                </div>
+            </section>
+        </div>
+        <script>window.$ = window.jQuery = require("../../assets/scripts/jquery.min");</script>
+        <script src="../../assets/vendor/bootstrap5.0alpha1/js/bootstrap.min.js"></script>
+        <script src="../../assets/vendor/bootstrap-table/bootstrap-table.min.js"></script>
+        <script src="../../assets/scripts/storage.js"></script>
+        <script src="../../assets/scripts/common.js"></script>
+        <script src="../../assets/template/scripts/commonExport.js"></script>
+        <script src="../../assets/template/scripts/commonFunc.js"></script>
+        <script src="../../assets/template/scripts/json_data.js"></script>
+        <script src="../../assets/template/scripts/returnBound.js"></script>
+        <script src="../../assets/template/scripts/templateParseTable.js"></script>
+    </body>
+</html>

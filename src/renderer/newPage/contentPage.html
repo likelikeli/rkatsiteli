@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>白羽 - 编辑</title>
+        <link rel="stylesheet" href="../../assets/vendor/bootstrap5.0alpha1/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="../../assets/styles/fy.css"/>
+        <link rel="Shortcut Icon" href="../../assets/images/favicon.ico" type="image/x-icon"/>
+        <link rel="stylesheet" href="../../assets/template/styles/contentPage.css">
+        <style>
+            .fixed-table-loading{
+                display: none;
+            }
+            #tableShow,#freeLinkShow{
+                display: none;
+            }
+            .displayNone{
+                display: none;
+            }
+            #tableDataParse td, #tableDataParse th{
+                white-space: nowrap;
+            }
+        </style>
+    </head>
+    <body>
+    <div class="l-header flex justify-content-between fy-middle">
+        <div>
+            <div class="btn-group" id="fileListBox" style="padding-left: 14px" role="group" aria-label="Basic example">
+            </div>
+        </div>
+        <div class="flex justify-content-between fy-middle">
+            <div>
+                <button class="btn btn-secondary input-group-append" id="webserviceBtns">webservice服务配置</button>
+            </div>
+            <div >
+                <button class="btn btn-secondary iconfont  ml-4" id="btnOpenProjFolder">&#xe6af; 项目文件夹</button>
+                <button class="btn btn-secondary iconfont  ml-4" id="btnArchive">&#xe662; 保存上载</button>
+            </div>
+        </div>
+    </div>
+        <div class="flex tblBox">
+            <div id="tblLeft">
+                <div id="tblHtml" >
+                    <div id="extractor_table" class="extractor_table"></div>
+                </div>
+            </div>
+            <div id="tblRight">
+                <div id="panelContent">
+                    <ul class="f-model-list list-group mb-4">
+                    </ul>
+                    <button class="btn btn-sm btn-primary displayNone jiexiBtn" >解析</button>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="webserviceWindow"  role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header fy-center">
+                        <h5 class="modal-title" id="webserviceModalLabel">需填写webservice服务</h5>
+                    </div>
+                    <div class="modal-body">
+                        <input class="form-control form-control-lg" placeholder="请填写webservice服务" type="text" id="webserviceHttp">
+                        <div class="mt-4">
+                            <select class="form-select form-select-lg" id="selectWeb">
+                                <option value="">请选择webservice服务</option>
+                                <option value="http://10.125.237.6/CamstarPortal/WebService.asmx?wsdl">http://10.125.237.6/CamstarPortal/WebService.asmx?wsdl</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer fy-center fy-between">
+                        <span> </span>
+                        <button id="lsWebservice" type="button" class="btn btn-primary">保 存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="jiexiShow"  role="dialog" aria-hidden="true">
+            <div class="modal-dialog" style="width:90vw;max-width: 90vw;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="jiexiShowLabel">解析数据</h5>
+                    </div>
+                    <div class="modal-body" style="height:500px;overflow: auto">
+                        <table id="tableDataParse"></table>
+                    </div>
+                    <div class="modal-footer fy-center fy-between">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>window.$ = window.jQuery = require('../../assets/scripts/jquery.min')</script>
+        <script src="../../assets/scripts/popper.min.js"></script>
+        <script src="../../assets/vendor/bootstrap5.0alpha1/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../../assets/template/scripts/bootstrap.js"></script>
+        <script src="../../assets/scripts/short-unique-id.min.js"></script>
+        <script src="../../assets/scripts/storage.js"></script>
+        <script src="../../assets/scripts/common.js"></script>
+        <script src="../../assets/scripts/anim-event.min.js"></script>
+        <script src="../../assets/scripts/leader-line.min.js"></script>
+        <script src="../../assets/scripts/sha.js"></script>
+        <script src="../../assets/vendor/bootstrap-table/bootstrap-table.min.js"></script>
+        <script src="../../assets/template/scripts/json_data.js"></script>
+        <script src="../../assets/template/scripts/common.js"></script>
+    <script src="../../assets/template/scripts/commonFunc.js"></script>
+        <script src="../../assets/template/scripts/returnBound.js"></script>
+        <script src="../../assets/template/scripts/contentPage.js"></script>
+        <script>
+            if(window.LS.get('webservicePathContent')){
+                $("#webserviceHttp").val(window.LS.get('webservicePathContent'))
+            }else{
+                window.LS.set('webservicePathContent',
+                    'http://10.125.237.6/CamstarPortal/WebService.asmx?wsdl')
+            }
+            $(document).on('click',"#lsWebservice",function () {
+                window.LS.set('webservicePathContent',$("#webserviceHttp").val())
+                $("#webserviceWindow").modal('hide')
+            })
+            $(document).on('change',"#selectWeb",function () {
+                $("#webserviceHttp").val($(this).val())
+            })
+            $(document).on('click',"#webserviceBtns",function () {
+                $("#webserviceWindow").modal('show')
+            })
+        </script>
+    </body>
+</html>

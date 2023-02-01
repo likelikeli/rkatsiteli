@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+
+    <title>白羽 - 欢迎！</title>
+
+    <link
+            rel="stylesheet"
+            href="../assets/vendor/bootstrap5.0alpha1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../assets/styles/fy.css"/>
+    <link rel="stylesheet" href="../assets/styles/project.css"/>
+
+    <link rel="Shortcut Icon" href="../assets/images/favicon.ico" type="image/x-icon"/>
+
+</head>
+
+<body>
+<div class="l-header">
+    <div class="pt-5 pl-5">
+        <span id="appinfo-logo" class="fy-text-white-8 fy-text-4xl mt-4 display-inline-block iconfont">&#xe66a;</span>
+        <span id="appInfo-version" class="f-version fy-text-2xs fy-text-white-6">企业版</span>
+    </div>
+    <div class="pt-1 pl-5 fy-thin fy-font-thin fy-thinfont fy-text-white-4">
+        半结构化数据提取可视化建模</div>
+</div>
+<div class="l-body">
+    <div class="width600">
+        <div class="fy-flex fy-between">
+            <div class="btnImg fy-flex fy-between btnImgStyle" data-type="excel">
+                <div class="leftImg">
+                    <img data-type="excel" src="../assets/images/upload/biaoge.png" alt="" />
+                </div>
+                <div class="rightTxt">
+                    <div class="rightTxt0">解析Excel</div>
+                    <div class="rightTxt1">支持Excel表格设计成各种纬度数据</div>
+                </div>
+            </div>
+            <div class="btnImg fy-flex fy-between btnImgStyle" data-type="csv">
+                <div class="leftImg leftImgCsv">
+                    <img  src="../assets/images/upload/csv.png" alt="" />
+                </div>
+                <div class="rightTxt ">
+                    <div class="rightTxt0">解析CSV</div>
+                    <div class="rightTxt1">支持CSV表格设计成各种纬度数据</div>
+                </div>
+            </div>
+        </div>
+        <div class="fy-flex fy-between">
+            <div class="btnImg fy-flex fy-between btnImgStyle"  data-type="txt" >
+                <div class="leftImg leftImgTxt" >
+                    <img  src="../assets/images/upload/txt.png" alt="" />
+                </div>
+                <div class="rightTxt">
+                    <div class="rightTxt0">解析TXT</div>
+                    <div class="rightTxt1">支持TXT数据解析</div>
+                </div>
+            </div>
+            <div class="btnImg fy-flex fy-between btnImgStyle" data-type="api" >
+                <div class="leftImg leftImgApi" >
+                    <img src="../assets/images/upload/APIjieru.png" alt="" />
+                </div>
+                <div class="rightTxt">
+                    <div class="rightTxt0">解析API</div>
+                    <div class="rightTxt1">支持创建API模版,导出api Schema数据</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="verificationSubmitWindow"  role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header fy-center">
+                <h5 class="modal-title" id="exampleModalLabel">需经过激活方可继续使用</h5>
+            </div>
+            <div class="modal-body">
+
+                <div class="mb-0">
+                    <label class="form-control-label">本机注册码</label>
+                    <div class="input-group input-group-lg">
+                        <input type="text" class="form-control" readonly id="regiCode">
+                    </div>
+                    <div class="text-muted fy-text-xs mt-1">请在购买后，向工作人员提供本注册码以换取激活码</div>
+                </div>
+                <div class="mt-3">
+                    <label class="form-control-label">请输入激活码</label>
+                    <div class="input-group input-group-lg">
+                        <input type="text" class="form-control" id="activecode">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer fy-center fy-between">
+                <span> </span>
+                <button id="lsActivating" type="button" class="btn btn-primary">激 活</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>window.$ = window.jQuery = require('../assets/scripts/jquery.min')</script>
+<script>
+    $(document).on('click',".btnImg",function () {
+        let type=$(this).attr("data-type")
+        window.location.href = 'project1.html?type='+type
+    })
+
+</script>
+</body>
+</html>

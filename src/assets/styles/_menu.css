@@ -1,0 +1,20 @@
+.f-nav-item{
+    display: block;;
+    padding: 15px 10px 15px 50px;
+    margin-bottom: 12px;
+    color: rgba(255, 255, 255, 0.466);
+    font-size: 1.4rem;
+    transition: all ease-in-out 0.3s;
+}
+
+.f-nav-item.active{
+    background-image: linear-gradient(25deg, rgb(109, 114, 123) 18%, rgb(39, 42, 47));
+    color: rgb(248, 248, 248);
+}
+
+.box{
+    background-color: rgba(139, 139, 139, 0.247);
+    border: 1px solid rgb(109, 114, 123) ;
+    height: 200px;
+    width: 100%;
+}

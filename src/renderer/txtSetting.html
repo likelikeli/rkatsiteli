@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>白羽 - TXT模型设计</title>
+    <link rel="stylesheet" href="../assets/vendor/bootstrap5.0alpha1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../assets/styles/fy.css"/>
+    <link rel="stylesheet" href="../assets/styles/txtSetting.css"/>
+    <link rel="Shortcut Icon" href="../assets/images/favicon.ico" type="image/x-icon"/>
+</head>
+
+<body>
+<div class="l-header fy-flex fy-between fy-middle">
+    <div>
+        <a href="project1.html?type=txt" class="btn btn-outline-secondary iconfont">&#xe619; 返回列表页</a>
+    </div>
+    <div>
+        <button class="btn btn-secondary iconfont  ml-2" id="btnArchive">&#xe662; 分享模型</button>
+    </div>
+</div>
+
+<div id="content" >
+
+    <div class="fy-flex">
+        <div class="contentSetting p-4">
+            <div class="card">
+                <h5 class="card-header">基础设置</h5>
+                <div class="card-body">
+                    <div >
+                        <div class="input-group">
+                            <span class="input-group-text">文本字段截取方式</span>
+                            <select class="form-select" id="split">
+                                <option selected value="">请您选择文本字段截取方式</option>
+                                <option value="逗号">逗号截取</option>
+                                <option value="空格">空格截取</option>
+                            </select>
+                        </div>
+                        <div class="input-group mt-3" >
+                            <span class="input-group-text">多少条取一条数据</span>
+                            <input type="number" min="1" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" step="1" class="form-control" id="compressNumber" placeholder="设置多少条取一条数据">
+                        </div>
+                        <div class="input-group mt-3">
+                            <span class="input-group-text">是否需要添加表头</span>
+                            <select class="form-select" id="isHeaderHave">
+                                <option selected value="">请您选择是否添加表头</option>
+                                <option value="是">是</option>
+                                <option value="否">否</option>
+                            </select>
+                        </div>
+                        <div>
+                            <div class="fy-flex fy-wrap" id="fieldArrBox">
+                            </div>
+
+                        </div>
+                        <div class="input-group mt-3" id="newFieldBox">
+                            <input type="text" class="form-control" id="fieldValue" placeholder="请输入字段名称">
+                            <button class="btn btn-primary" type="button" id="buttonAdd">新增字段</button>
+                        </div>
+                        <div class="input-group mt-3">
+                            <button id="btnUpload" class="btn btn-primary w-100">导入文件</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contentData">
+            <div class="fileListBox p-3">
+                <table id="fileListBox"></table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>window.$ = window.jQuery = require('../assets/scripts/jquery.min')</script>
+<script src="../assets/scripts/popper.min.js"></script>
+<script src="../assets/vendor/bootstrap5.0alpha1/js/bootstrap.min.js"></script>
+<script src="../assets/vendor/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../assets/scripts/common.js"></script>
+<script src="../assets/scripts/storage.js"></script>
+<script src="../assets/scripts/txtSetting.js"></script>
+</body>
+</html>

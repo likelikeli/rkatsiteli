@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>白羽 - API Schema模型设计</title>
+    <link rel="stylesheet" href="../assets/vendor/bootstrap5.0alpha1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../assets/styles/fy.css"/>
+    <link rel="stylesheet" href="../assets/styles/apiSetting.css"/>
+    <link rel="Shortcut Icon" href="../assets/images/favicon.ico" type="image/x-icon"/>
+</head>
+
+<body>
+<div class="l-header fy-flex fy-between fy-middle">
+    <div>
+        <a href="project1.html?type=api" class="btn btn-outline-secondary iconfont">&#xe619; 返回列表页</a>
+    </div>
+    <div>
+        <button class="btn btn-secondary iconfont  ml-2" id="btnArchive">&#xe662; 分享模型</button>
+    </div>
+</div>
+
+<div id="content">
+    <div>
+        <div class="outputBox" id="outputBox">
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModal" data-backdrop="static" data-keyboard="false"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:90vw;max-width: 90vw" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">高级设置</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="height:700px;overflow: auto">
+                <div class="card">
+                    <h5 class="card-header">基础设置</h5>
+                    <div class="card-body">
+                       <div class="fy-flex fy-wrap fy-between">
+                           <div class="fieldStyle">
+                               <div class="input-group">
+                                   <span class="input-group-text">描述</span>
+                                   <input type="text" id="description" placeholder="请输入对该字段的描述" class="form-control inputChange">
+                               </div>
+                           </div>
+                           <div class="fieldStyle objectBox">
+                               <div class="input-group">
+                                   <span class="input-group-text">最小元素个数</span>
+                                   <input type="number" id="minProperties" placeholder="请输入最小元素个数" class="form-control inputChange">
+                               </div>
+                           </div>
+                           <div class="fieldStyle objectBox">
+                               <div class="input-group">
+                                   <span class="input-group-text">最大元素个数</span>
+                                   <input type="number" id="maxProperties" placeholder="请输入最大元素个数" class="form-control inputChange">
+                               </div>
+                           </div>
+                           <div class="fieldStyle arrayBox">
+                               <div class="input-group">
+                                   <span class="input-group-text">最小元素个数</span>
+                                   <input type="number" id="minItems" placeholder="请输入最小元素个数" class="form-control inputChange">
+                               </div>
+                           </div>
+                           <div class="fieldStyle arrayBox">
+                               <div class="input-group">
+                                   <span class="input-group-text">最大元素个数</span>
+                                   <input type="number" id="maxItems" placeholder="请输入最大元素个数" class="form-control inputChange">
+                               </div>
+                           </div>
+                           <div class="fieldStyle stringBox">
+                               <div class="input-group">
+                                   <span class="input-group-text">最小长度</span>
+                                   <input type="number" id="minLength" placeholder="请输入最小长度" class="form-control inputChange">
+                               </div>
+                           </div>
+                           <div class="fieldStyle stringBox">
+                               <div class="input-group">
+                                   <span class="input-group-text">最大长度</span>
+                                   <input type="number" id="maxLength" placeholder="请输入最大长度" class="form-control inputChange">
+                               </div>
+                           </div>
+                           <div class="fieldStyle stringBox" style="width:calc(50% - 6px)">
+                               <div class="input-group">
+                                   <span class="input-group-text">正则表达式约束字符串</span>
+                                   <input type="text" id="pattern" placeholder="请输入正则表达式约束字符串" class="form-control inputChange">
+                               </div>
+                           </div>
+                           <div class="fieldStyle stringBox" style="width:calc(50% - 6px)">
+                               <div class="input-group">
+                                   <span class="input-group-text">格式化</span>
+                                   <select class="form-select inputChange" id="format" aria-label="Default select example">
+                                       <option selected>请选择格式化类型</option>
+                                       <option value="date">date</option>
+                                       <option value="date-time">date-time</option>
+                                       <option value="email">email</option>
+                                       <option value="hostname">hostname</option>
+                                       <option value="ipv4">ipv4</option>
+                                       <option value="ipv6">ipv6</option>
+                                       <option value="url">url</option>
+                                   </select>
+                               </div>
+                           </div>
+                           <div class="fieldStyle numberBox">
+                               <div class="input-group">
+                                   <span class="input-group-text">最小值</span>
+                                   <input type="number" id="minimum" placeholder="请输入最小值" class="form-control inputChange">
+                               </div>
+                           </div>
+                           <div class="fieldStyle numberBox">
+                               <div class="input-group">
+                                   <span class="input-group-text">最大值</span>
+                                   <input type="number" id="maximum" placeholder="请输入最大值" class="form-control inputChange">
+                               </div>
+                           </div>
+                           <div class="fieldStyle numberBox">
+                               <div class="form-check">
+                                   <input class="form-check-input checkChange" type="checkbox" value="" id="exclusiveMinimum">
+                                   <label class="form-check-label" for="exclusiveMinimum">
+                                       选择后，数据必须大于最小值
+                                   </label>
+                               </div>
+                           </div>
+                           <div class="fieldStyle numberBox">
+                               <div class="form-check">
+                                   <input class="form-check-input checkChange" type="checkbox" value="" id="exclusiveMaximum">
+                                   <label class="form-check-label" for="exclusiveMaximum">
+                                       选择后，数据必须小于最大值
+                                   </label>
+                               </div>
+                           </div>
+                       </div>
+                    </div>
+                </div>
+                <div class="card mt-3">
+                    <h5 class="card-header">自定义属性 <button type="button"  class="ml-4 btn btn-primary addCustom">新增</button></h5>
+                    <div class="card-body">
+                        <div class="fy-flex fy-wrap" id="customBox">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-3">
+                    <h5 class="card-header">预览</h5>
+                    <div class="card-body">
+                        <pre id="result"></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary closeModal" data-bs-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>window.$ = window.jQuery = require('../assets/scripts/jquery.min')</script>
+<script src="../assets/scripts/popper.min.js"></script>
+<script src="../assets/vendor/bootstrap5.0alpha1/js/bootstrap.min.js"></script>
+<script src="../assets/vendor/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../assets/scripts/common.js"></script>
+<script src="../assets/scripts/storage.js"></script>
+<script src="../assets/scripts/apiSetting.js"></script>
+</body>
+</html>

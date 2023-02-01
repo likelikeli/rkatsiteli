@@ -1,0 +1,97 @@
+.l-header{
+    position: fixed;
+    right: 20px;
+    top: 0;
+    left: 20px;
+    height: 70px;
+    background-color: #121315;
+    z-index: 100;
+}
+#content{
+    position: absolute;
+    width:100%;
+    height:100%;
+    /*top:70px;*/
+    background-color: #FFF;
+    overflow: auto;
+}
+
+.jse--setting{
+    text-align: center;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+.jse--setting path{
+    fill:#666;
+}
+.jse--setting:hover path{
+    fill:#0d6efd;
+}
+.jse--plus{
+    font-size: 1.8em;
+    cursor: pointer;
+    color:#666;
+    font-weight: 500;
+   text-align: center;
+
+}
+.jse--delete{
+    font-size: 1.8em;
+    cursor: pointer;
+    color:#666;
+    font-weight: 500;
+    text-align: center;
+}
+.jse--delete:hover{
+    color:#ff0000;
+}
+.jse--plus:hover{
+    color:#0d6efd;
+}
+
+pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+.fieldStyle{
+    width:32.8%;
+    margin-bottom:14px;
+}
+.outputBox{
+    width:1038px;
+    margin:20px auto
+}
+.outShow{
+    width:24px;
+}
+.outShowOpen{
+    width:0;
+    height:0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 0px solid #4a5568;
+    border-left: 10px  solid #4a5568;
+    margin-top:10px;
+    cursor: pointer;
+}
+.outShowClose{
+    width:0;
+    height:0;
+    border-top: 10px solid #4a5568;
+    border-bottom: 0px solid transparent;
+    border-right: 8px solid transparent;
+    border-left: 8px  solid transparent;
+    margin-top:10px;
+    margin-top:14px;
+    cursor: pointer;
+}
+.ml2{
+    margin-left:8px;
+}
+.mr2{
+    margin-right:8px;
+}
+.numberBox,.objectBox,.arrayBox,.stringBox{
+    display: none;
+}
+#result{
+    color: white;
+    background: #1a202c;
+}

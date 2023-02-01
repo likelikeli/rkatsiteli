@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>白羽</title>
+    <link rel="stylesheet" href="../assets/vendor/bootstrap5.0alpha1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../assets/styles/fy.css"/>
+    <link rel="stylesheet" href="../assets/styles/project.css"/>
+
+    <link rel="Shortcut Icon" href="../assets/images/favicon.ico" type="image/x-icon"/>
+</head>
+<body class="d-body">
+    <div class="d-header">
+        <div class="d-header-left">
+            <div class="d-click-btn">
+                <div class="btn-icon">
+                    <i class="dot"></i>
+                    <i class="dot"></i>
+                    <i class="dot"></i>
+                </div>
+                <div class="btn-item excelChoose chooseD pointer" data-type="excel">
+                    <img class="icon-img" src="../assets/images/upload/ececlLogo.png" alt="">
+                    解析Excel
+                </div>
+            </div>
+            <div class="d-click-btn">
+                <div class="btn-icon">
+                    <i class="dot"></i>
+                    <i class="dot"></i>
+                    <i class="dot"></i>
+                </div>
+                <div class="btn-item csvChoose chooseD pointer" data-type="csv">
+                    <img class="icon-img" src="../assets/images/upload/csvLogo.png" alt="">
+                    解析CSV
+                </div>
+            </div>
+            <div class="d-click-btn">
+                <div class="btn-icon">
+                    <i class="dot"></i>
+                    <i class="dot"></i>
+                    <i class="dot"></i>
+                </div>
+                <div class="btn-item txtChoose chooseD pointer" data-type="txt">
+                    <img class="icon-img" src="../assets/images/upload/txtLogo.png" alt="">
+                    解析TXT
+                </div>
+            </div>
+            <div class="d-click-btn">
+                <div class="btn-icon">
+                    <i class="dot"></i>
+                    <i class="dot"></i>
+                    <i class="dot"></i>
+                </div>
+                <div class="btn-item apiChoose chooseD pointer" data-type="api">
+                    <img class="icon-img" src="../assets/images/upload/apiLogo.png" alt="">
+                    解析API
+                </div>
+            </div>
+        </div>
+        <div class="d-header-right">
+            <div class="setting-btn addObBtn" data-toggle="tooltip" data-placement="top" title="新增项目"><img data-toggle="tooltip" data-placement="top" title="新增项目" src="../assets/images/upload/setting.png" alt="" /></div>
+            <div class="setting-btn goBack" data-toggle="tooltip" data-placement="top" title="返回首页"><img data-toggle="tooltip" data-placement="top" title="返回首页" src="../assets/images/upload/shu.png" alt="" /></div>
+        </div>
+    </div>
+    <div class="d-content">
+        <p class="d-content-title">最近</p>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col" style="width:200px">名称</th>
+                    <th scope="col" style="width:200px">打开时间</th>
+                    <th scope="col">地址</th>
+                    <th scope="col" style="width:60px">操作</th>
+                </tr>
+            </thead>
+            <tbody id="trBox" style="height:calc(100vh - 270px);width:100%;display:block; overflow-y: auto;position:absolute">
+            </tbody>
+        </table>
+        <div class="nullData">
+            <img src="../assets/images/upload/kong.png" alt="">
+            <p>没有数据，请您新建项目</p>
+        </div>
+    </div>
+    <div class="modal fade" id="modalShow"  role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header fy-center">
+                    <h5 class="modal-title" id="exampleModalLabel">新增项目</h5>
+                </div>
+                <div class="modal-body">
+
+                    <div class="mb-0">
+                        <label class="form-control-label mb-2">项目名称</label>
+                        <div class="input-group input-group-lg">
+                            <input type="text" class="form-control" id="projectName" placeholder="请您填写项目名称">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer fy-center fy-between">
+                    <span> </span>
+                    <button id="addObject" type="button" class="btn btn-primary">新增</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>window.$ = window.jQuery = require('../assets/scripts/jquery.min')</script>
+    <script src="../assets/scripts/popper.min.js"></script>
+    <script src="../assets/vendor/bootstrap5.0alpha1/js/bootstrap.min.js"></script>
+    <script src="../assets/scripts/short-unique-id.min.js"></script>
+    <script src="../assets/scripts/storage.js"></script>
+    <script src="../assets/scripts/common.js"></script>
+    <script src="../assets/scripts/project1.js"></script>
+
+    <script>
+        $(function (){
+            $("[data-toggle='tooltip']").tooltip()
+        })
+    </script>
+</body>
+</html>

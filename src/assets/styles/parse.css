@@ -1,0 +1,224 @@
+body{
+    overflow: auto;
+}
+.card-body {
+    border: 1px solid #ccc;
+    /*display: flex;*/
+}
+
+.renderData,#renderData {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+.renderData{
+    margin-top:10px;
+    margin-bottom:20px;
+}
+.renderData table ,#renderData table {
+    width: 100%;
+}
+
+.renderData tr, #renderData tr{
+    border: 1px solid #ccc;
+}
+
+.renderData td,#renderData td  {
+    /*padding: 10px;*/
+    line-height:30px;
+    padding:0;
+    height:30px;
+    border: 1px solid #ccc;
+}
+
+.renderOrigin,#renderOrigin {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.renderOrigin table ,#renderOrigin table{
+    width: 100%;
+}
+
+.renderOrigin tr ,#renderOrigin tr {
+    border: 1px solid #ccc;
+}
+
+.renderOrigin td,#renderOrigin td  {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.title {
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.renderGraph,#renderGraph  {
+    height: 300px;
+}
+.renderGraph{
+    background: #000;
+}
+.attr,#attr {
+    min-height: 20px;
+    position: absolute;
+    right: 20px;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.attr ul,#attr ul  {
+    list-style: none;
+    padding-left: 0;
+}
+
+#selectModel{
+    margin-top: 10px;
+}
+
+.renderTable ,#renderTable{
+    margin-top: 10px;
+}
+.renderTable{
+    margin-bottom:10px;
+    margin-top:5px;
+}
+.renderTable table,#renderTable table{
+    color: #FFFFFF;
+}
+
+.renderTable table tr:hover,#renderTable table tr:hover {
+    color: inherit;
+}
+
+#renderFreeLink {
+    margin-top: 20px;
+}
+
+#renderFreeLink ul {
+    padding: 20px;
+    display: flex;
+    border: 1px solid #fff;
+    justify-content: space-around;
+}
+
+#renderFreeLink ul li {
+    list-style: none;
+    margin-right: 10px;
+}
+
+#renderFreeLink ul li div {
+    margin-bottom: 10px;
+}
+
+#exportExcel {
+    margin: 0 0px 0px 0;
+}
+
+#htmlout th, #htmlout td {
+    border-width: 1px;
+}
+#tableData{
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*text-align: center;*/
+    /*width: 100%;*/
+    /*margin-top: 30px;*/
+}
+#tableData tr{
+    height:30px;
+    line-height:30px;
+    width:100%;
+}
+#tableData tr td{
+    /*padding-left:3px;*/
+    /*padding-right:3px;*/
+}
+#tableData {
+    color:white;
+}
+#tableData thead tr{
+    background: rgba(96, 166, 255,1);
+}
+#tableData tr{
+    padding:0;
+
+}
+#tableData th{
+    padding:0;
+}
+#tableData td{
+    padding:0;
+}
+#tableData.table-hover>tbody>tr:hover{
+    color:white;
+}
+#tableData .pagination-detail{
+    display: none;
+}
+#htmlout .pagination-detail{
+    display: none;
+}
+#tableData .btnStandard{
+    background: #FFC420;
+    line-height:30px;
+    height:30px;
+    white-space: nowrap;
+}
+#tableData .btnDefault{
+    line-height:30px;
+    height:30px;
+    white-space: nowrap;
+}
+#htmlout .fixed-table-pagination>.pagination{
+    float: none !important;
+}
+#htmlout .pagination{
+    margin:auto;
+    margin-top:10px;
+}
+.backgroundFFB9{
+    background: #FFB900 !important;
+}
+.fileListBox{
+    min-height:100px;
+}
+.fileListBoxLi{
+    line-height: 30px;
+    cursor: pointer;
+}
+.fileListBoxLi:hover{
+    color:#63b3ed ;
+}
+.tableIndexNameS{
+    line-height:28px;
+    font-size:16px;
+    margin-top:14px;
+}
+#modelAllBox{
+    padding:8px;
+}
+.lineSet {
+    position: absolute;
+    background: red;
+    height: 2px;
+    z-index: 4;
+    /*这里设置大于2，即可看到真正连线的其实是两个元素的中心坐标*/
+}
+.tttd{
+    width:6px;
+    position: absolute;
+    right:0;
+    transform: rotate(45deg);
+    height:6px;
+    top:-3px;
+    border-top: 2px solid red;
+    border-right: 2px solid red;
+}

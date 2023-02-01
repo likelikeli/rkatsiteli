@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    window.$ = window.jQuery = require('../assets/scripts/jquery.min')
+</script>
+<script src="../assets/scripts/popper.min.js"></script>
+<script src="../assets/vendor/bootstrap5.0alpha1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../assets/template/scripts/bootstrap.js"></script>
+<script src="../assets/scripts/short-unique-id.min.js"></script>
+<script src="../assets/scripts/storage.js"></script>
+<script src="../assets/scripts/common.js"></script>
+<script src="../assets/scripts/anim-event.min.js"></script>
+<script src="../assets/scripts/leader-line.min.js"></script>
+<script src="../assets/scripts/sha.js"></script>
+<script src="../assets/vendor/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../assets/template/scripts/json_data.js"></script>
+<script src="../assets/template/scripts/common.js"></script>
+<script>
+    let _fs = require('fs')
+    let request = require("request");
+    let _ = require('lodash')
+    let compressing = require('compressing');
+    const _paths = require("path");
+    let urls= window.location.search.substring(1)
+    let fileList=[]
+    const adm_zip = require("adm-zip-iconv");
+    const languageEncoding = require("detect-file-encoding-and-language");
+    $(function () {
+        let _remotes = require('electron').remote
+        let AppDataFoldersRoot='nowPage_baiyu'
+        let _AppDataPathRoot = _paths.join(_remotes.app.getPath("appData"),AppDataFoldersRoot);
+        let nowFiles='nowPage'+(new Date()).getTime()
+        let AppDataFolders=_paths.join(_AppDataPathRoot,nowFiles)
+        function goContent(wen,wen1,fileN,arrobject){
+            const pathToFile = wen;
+            languageEncoding(pathToFile).then((fileInfo) => {
+                let agent = window.navigator.userAgent.toLowerCase();
+                let isMac = /macintosh|mac os x/i.test(agent);
+                if(isMac){
+                    let unzip = new adm_zip(wen);
+                    unzip.extractAllTo(wen1, /*overwrite*/ true);
+                }else{
+                    if(fileInfo.encoding=='GB2312'||fileInfo.encoding=='gb2312'){
+                        let unzip = new adm_zip(wen);
+                        unzip.extractAllTo(wen1, /*overwrite*/ true);
+                    }else{
+                        let unzip = new adm_zip(wen,fileInfo.encoding);
+                        unzip.extractAllTo(wen1, /*overwrite*/ true);
+                    }
+                }
+                setTimeout(()=>{
+                            rmdir1(wen1,fileN)
+                            let ktimer = setInterval(()=>{
+                                if(fileList&&fileList[0]){
+                                    let customizedValue = arrobject.customizedValue
+                                    window.LS.set('fileList', JSON.stringify(fileList))
+                                    window.location.href = 'newPage/contentPage.html?pathRoot='+AppDataFolders+'&customizedValue='+customizedValue
+                                    clearInterval(ktimer)
+                                }
+                            },10)
+                },50)
+            });
+        }
+        _fs.access(_AppDataPathRoot, _fs.constants.F_OK,function (res) {
+            if(res){
+                _fs.mkdir(_AppDataPathRoot,511,function(err){
+                    if(err){}else{
+                        _fs.mkdir(AppDataFolders,511,function(err){
+                            if(err){
+                            }else{
+                                let vars=[]
+                                let urlss = urls.split('&')
+                                urlss.filter(item=>{
+                                    vars.push(item)
+                                })
+                                let arrobject={}
+                                for (let i = 0; i < vars.length; i++) {
+                                    let pair = vars[i].split("=");
+                                    arrobject[pair[0]]=decodeURI(pair[1])
+                                }
+                                let urlName = _paths.basename(arrobject.filePath)
+                                let wen = _paths.join(AppDataFolders,urlName)
+                                let fileN=urlName.split('.')[0]
+                                let wen1 = _paths.join(AppDataFolders,fileN)
+                                if(arrobject.filePath.indexOf('http')!=-1){
+                                    let qbyFileAbsolutePathStream = _fs.createWriteStream(wen)
+                                    request(encodeURI(arrobject.filePath)).pipe(qbyFileAbsolutePathStream).on("close", function (err) {
+                                        if(err){}else{
+                                            goContent(wen,wen1,fileN,arrobject)
+                                        }
+                                    })
+                                }else{
+                                    _fs.copyFile(arrobject.filePath,wen,function (res) {
+                                        if (res) {
+                                        } else {
+                                            goContent(wen,wen1,fileN,arrobject)
+                                        }
+                                    })
+                                }
+                            }
+                        })
+                    }
+                })
+            }else{
+                _fs.mkdir(AppDataFolders,511,function(err){
+                    if(err){
+                    }else{
+                        let vars=[]
+                        let urlss = urls.split('&')
+                        urlss.filter(item=>{
+                            vars.push(item)
+                        })
+                        let arrobject={}
+                        for (let i = 0; i < vars.length; i++) {
+                            let pair = vars[i].split("=");
+                            arrobject[pair[0]]=decodeURI(pair[1])
+                        }
+                        let urlName = _paths.basename(arrobject.filePath)
+                        let wen = _paths.join(AppDataFolders,urlName)
+                        let fileN=urlName.split('.')[0]
+                        let wen1 = _paths.join(AppDataFolders,fileN)
+                        if(arrobject.filePath.indexOf('http')!=-1){
+                            let qbyFileAbsolutePathStream = _fs.createWriteStream(wen)
+                            request(encodeURI(arrobject.filePath)).pipe(qbyFileAbsolutePathStream).on("close", function (err) {
+                                if(err){}else{
+                                    goContent(wen,wen1,fileN,arrobject)
+                                }
+                            })
+                        }else{
+                            _fs.copyFile(arrobject.filePath,wen,function (res){
+                                if(res){}else{
+                                    goContent(wen,wen1,fileN,arrobject)
+                                }
+
+                            })
+                        }
+                    }
+                })
+            }
+        })
+
+        async function rmdir1(dir,cb) {
+            _fs.readdir(dir,function (err, files) {
+                if(files.includes('original.qby')||files.includes('original.zip')){
+                    let newPath = _paths.join(dir);
+                    let lis = {
+                        name: cb,
+                    }
+                    for(let k in files){
+                        if(files[k].indexOf('.qby')!=-1){
+                            lis['qbyFile'] =  _paths.join(newPath,files[k]);
+                        }
+                        if(files[k].indexOf('.zip')!=-1){
+                            lis['qbyFile'] =  _paths.join(newPath,files[k]);
+                        }
+                        if(files[k].indexOf('tableData.json')!=-1){
+                            lis['tableFile'] =  _paths.join(newPath,files[k]);
+                        }
+                        if(files[k].indexOf('GraphData.json')!=-1){
+                            lis['graphFile'] =  _paths.join(newPath,files[k]);
+                        }
+                    }
+                    fileList.push(lis)
+                }else{
+                    for(let index in files){
+                        if(index!='__MACOSX'&&index!='._.DS_Store'&&index!='.DS_Store'){
+                            let newPath = _paths.join(dir,files[index]);
+                            if(newPath.indexOf('__MACOSX')==-1&&newPath.indexOf('DS_Store')==-1){
+                                _fs.stat(newPath,function (err, stat) {
+                                    if(err){}
+                                    if(stat.isDirectory()){
+                                        _fs.readdir(newPath,function (err, files1) {
+                                            if(files1.includes('GraphData.json')){
+                                                let lis = {
+                                                    name: files[index],
+                                                }
+                                                for(let k in files1){
+                                                    if(files1[k].indexOf('.zip')!=-1){
+                                                        lis['qbyFile'] =  _paths.join(newPath,files1[k]);
+                                                    }
+                                                    if(files1[k].indexOf('.qby')!=-1){
+                                                        lis['qbyFile'] =  _paths.join(newPath,files1[k]);
+                                                    }
+                                                    if(files1[k].indexOf('tableData.json')!=-1){
+                                                        lis['tableFile'] =  _paths.join(newPath,files1[k]);
+                                                    }
+                                                    if(files1[k].indexOf('GraphData.json')!=-1){
+                                                        lis['graphFile'] =  _paths.join(newPath,files1[k]);
+                                                    }
+                                                }
+                                                fileList.push(lis)
+                                            }else{
+                                                rmdir1(newPath);
+                                            }
+                                        })
+                                    }
+                                })
+                            }
+                        }
+                    }
+                }
+            })
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    let uuu= require('electron').remote.getGlobal('sharedObject').args;
+    let uu=require('electron').remote.getGlobal('sharedObjects')
+    if(uu){
+        // baiyu://content?qbyFile=http://121.199.46.94:18102/file/download/rr.qby&graphFile=http://121.199.46.94:18102/file/download/GraphData.json&tableFile=http://121.199.46.94:18102/file/download/tableData.json
+        // baiyu://schema?qbyFileAbsolutePath=http://pdm.149.sast.casc/aikeshengData/0000004155/rr.qby&xlsxFileAbsolutePath=http://pdm.149.sast.casc/aikeshengData/0000004155/GraphData.json&jsonFileAbsolutePath=http://pdm.149.sast.casc/aikeshengData/0000004155/tableData.json&technicsNumber=1559617483904&stepNum=10&paceNum=1
+        // baiyu://schema?qbyFileAbsolutePath=http://121.199.46.94:18102/file/download/rr.qby&xlsxFileAbsolutePath=http://121.199.46.94:18102/file/download/GraphData.json&jsonFileAbsolutePath=http://121.199.46.94:18102/file/download/tableData.json&technicsNumber=333&stepNum=333&paceNum=444
+        // baiyu://schema?technicsNumber=333&stepNum=333&paceNum=444
+        if(uu.args){
+            if(uu.args.toLowerCase().indexOf('baiyu://content')!=-1){
+                let urls= uu.args.split('content?')[1]
+                if(urls){
+                }else{
+                    urls= uuu.split('content/?')[1]
+                }
+                if(urls){
+                }else{
+                    urls= uuu.split('content\\?')[1]
+                }
+                let arrobject={}
+                var query = urls
+                var vars = query.split("&");
+                for (var i = 0; i < vars.length; i++) {
+                    var pair = vars[i].split("=");
+                    arrobject[pair[0]]=decodeURI(pair[1])
+                }
+                let filePath=arrobject.filePath
+                let customizedValue=arrobject.customizedValue
+                window.location.href = 'moreFile.html?filePath='+filePath+'&customizedValue='+customizedValue
+            }else if(uu.args.toLowerCase().indexOf('baiyu://schema')!=-1){
+                let urls= uu.args.split('schema?')[1]
+                if(urls){
+                }else{
+                    urls= uuu.split('schema/?')[1]
+                }
+                if(urls){
+                }else{
+                    urls= uuu.split('schema\\?')[1]
+                }
+                let arrobject={}
+                var query = urls
+                var vars = query.split("&");
+                for (var i = 0; i < vars.length; i++) {
+                    var pair = vars[i].split("=");
+                    arrobject[pair[0]]=decodeURI(pair[1])
+                }
+                if(arrobject.qbyFileAbsolutePath&&arrobject.qbyFileAbsolutePath!=undefined&&arrobject.qbyFileAbsolutePath!='undefined'&&arrobject.qbyFileAbsolutePath!=null&&arrobject.qbyFileAbsolutePath!='null'){
+                    let qbyFileAbsolutePath=arrobject.qbyFileAbsolutePath
+                    let xlsxFileAbsolutePath=arrobject.xlsxFileAbsolutePath
+                    let jsonFileAbsolutePath=arrobject.jsonFileAbsolutePath
+                   let urls = 'newPage/templatePage.html?'+'qbyFileAbsolutePath='+qbyFileAbsolutePath+'&xlsxFileAbsolutePath='+xlsxFileAbsolutePath+'&jsonFileAbsolutePath='+jsonFileAbsolutePath
+
+                    if(arrobject.technicsNumber){
+                        urls+='&technicsNumber='+arrobject.technicsNumber
+                    }
+                    if(arrobject.stepNum){
+                        urls+='&stepNum='+arrobject.stepNum
+                    }
+                    if(arrobject.paceNum){
+                        urls+='&paceNum='+arrobject.paceNum
+                    }
+                    if(arrobject.type){
+                        urls+='&type='+arrobject.type
+                    }
+                    if(arrobject.templateOid){
+                        urls+='&templateOid='+arrobject.templateOid
+                    }
+                    window.location.href = urls
+
+                }else{
+                    let urls = 'newPage/templatePage.html?'
+                    if(arrobject.technicsNumber){
+                        urls+='&technicsNumber='+arrobject.technicsNumber
+                    }
+                    if(arrobject.stepNum){
+                        urls+='&stepNum='+arrobject.stepNum
+                    }
+                    if(arrobject.paceNum){
+                        urls+='&paceNum='+arrobject.paceNum
+                    }
+                    if(arrobject.type){
+                        urls+='&type='+arrobject.type
+                    }
+                    if(arrobject.templateOid){
+                        urls+='&templateOid='+arrobject.templateOid
+                    }
+                    window.location.href = urls
+                }
+            }else{
+                window.location.href = 'index.html'
+            }
+        }
+    }else{
+        if(uuu){
+            if(uuu.toLowerCase().indexOf('baiyu://content')!=-1){
+                let urls= uuu.split('content?')[1]
+                if(urls){
+                }else{
+                    urls= uuu.split('content/?')[1]
+                }
+                if(urls){
+                }else{
+                    urls= uuu.split('content\\?')[1]
+                }
+                let arrobject={}
+                var query = urls
+                var vars = query.split("&");
+                for (var i = 0; i < vars.length; i++) {
+                    var pair = vars[i].split("=");
+                    arrobject[pair[0]]=decodeURI(pair[1])
+                }
+                let filePath=arrobject.filePath
+                let customizedValue=arrobject.customizedValue
+                window.location.href = 'moreFile.html?filePath='+filePath+'&customizedValue='+customizedValue
+
+            }else if(uuu.toLowerCase().indexOf('baiyu://schema')!=-1){
+                let urls= uuu.split('schema?')[1]
+                if(urls){
+                }else{
+                    urls= uuu.split('schema/?')[1]
+                }
+                if(urls){
+                }else{
+                    urls= uuu.split('schema\\?')[1]
+                }
+                let arrobject={}
+                var query = urls
+                var vars = query.split("&");
+                for (var i = 0; i < vars.length; i++) {
+                    var pair = vars[i].split("=");
+                    arrobject[pair[0]]=decodeURI(pair[1])
+                }
+
+                if(arrobject.qbyFileAbsolutePath&&arrobject.qbyFileAbsolutePath!=undefined&&arrobject.qbyFileAbsolutePath!='undefined'&&arrobject.qbyFileAbsolutePath!=null&&arrobject.qbyFileAbsolutePath!='null'){
+                    let qbyFileAbsolutePath=arrobject.qbyFileAbsolutePath
+                    let xlsxFileAbsolutePath=arrobject.xlsxFileAbsolutePath
+                    let jsonFileAbsolutePath=arrobject.jsonFileAbsolutePath
+                    let urls = 'newPage/templatePage.html?'+'qbyFileAbsolutePath='+qbyFileAbsolutePath+'&xlsxFileAbsolutePath='+xlsxFileAbsolutePath+'&jsonFileAbsolutePath='+jsonFileAbsolutePath
+                    if(arrobject.technicsNumber){
+                        urls+='&technicsNumber='+arrobject.technicsNumber
+                    }
+                    if(arrobject.stepNum){
+                        urls+='&stepNum='+arrobject.stepNum
+                    }
+                    if(arrobject.paceNum){
+                        urls+='&paceNum='+arrobject.paceNum
+                    }
+                    if(arrobject.type){
+                        urls+='&type='+arrobject.type
+                    }
+                    if(arrobject.templateOid){
+                        urls+='&templateOid='+arrobject.templateOid
+                    }
+                    window.location.href = urls
+                }else{
+                    let urls = 'newPage/templatePage.html?'
+                    if(arrobject.technicsNumber){
+                        urls+='&technicsNumber='+arrobject.technicsNumber
+                    }
+                    if(arrobject.stepNum){
+                        urls+='&stepNum='+arrobject.stepNum
+                    }
+                    if(arrobject.paceNum){
+                        urls+='&paceNum='+arrobject.paceNum
+                    }
+                    if(arrobject.type){
+                        urls+='&type='+arrobject.type
+                    }
+                    if(arrobject.templateOid){
+                        urls+='&templateOid='+arrobject.templateOid
+                    }
+                    window.location.href = urls
+                }
+             }else{
+                window.location.href = 'index.html'
+            }
+        }else{
+            window.location.href = 'index.html'
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,74 @@
+.l-header{
+    position: fixed;
+    right: 20px;
+    top: 0;
+    left: 20px;
+    height: 70px;
+    background-color: #121315;
+    z-index: 100;
+}
+#content{
+    position: fixed;
+    width:100%;
+    height:calc(100vh - 70px);
+    top:70px;
+    background-color: #FFF;
+}
+.fieldStyle{
+    padding:0 8px;
+    background: #4a5568;
+    position: relative;
+    height:28px;
+    line-height: 28px;
+    border-radius: 4px;
+    color:#fff;
+    margin-top:18px;
+    margin-right:18px;
+}
+.fieldStyle .spanStyle{
+    padding:0px;
+    display: block;
+    width:18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #ff0000;
+    position: absolute;
+    top:-9px;
+    right:-9px;
+    text-align: center;
+    line-height: 18px;
+    cursor: pointer;
+}
+.contentSetting{
+    width:400px;
+    height:calc(100vh - 70px);
+}
+.contentData{
+    width:calc(100% - 400px);
+    height:calc(100vh - 70px);
+    background: #f0efef;
+}
+.fixed-table-loading {
+    display: none;
+}
+.fileListBox table{
+
+}
+#fieldArrBox,#newFieldBox{
+    display: none;
+}
+.table>tbody>tr.success1,.table>tbody>tr.success1>td{
+    background: rgba(137, 253, 156,0.05)
+}
+.table>tbody>tr.success1:hover,.table>tbody>tr.success1:hover>td{
+    background: rgba(137, 253, 156,.1)
+}
+.success td,.info td{
+    font-size:14px;
+}
+.table>tbody>tr.info1,.table>tbody>tr.info1>td{
+    background: rgb(117, 213, 249,0.05)
+}
+.table>tbody>tr.info1:hover,.table>tbody>tr.info1:hover>td{
+    background: rgba(0,0,0,.05)
+}

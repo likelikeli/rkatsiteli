@@ -1,0 +1,575 @@
+.l-header {
+    height: 170px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index:999;
+    /* background-color:#2e323c; */
+    background-color: #2f3241;
+}
+
+.f-version {
+    position: absolute;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.l-body {
+    position: fixed;
+    left: 20px;
+    top: 190px;
+    right: 20px;
+    bottom: 20px;
+}
+
+#divCreateProj {
+    max-width: 500px;
+    margin-right: 20px;
+}
+
+#recentList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform .2s linear;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.74);
+}
+
+#recentList li span {
+    cursor: pointer;
+    flex-grow: 1
+}
+
+#recentList li .btn-close {
+    cursor: pointer;
+    flex-grow: 0;
+    width: 20px;
+    height: 28px;
+    color: rgba(255, 255, 255, .7);
+    opacity: 0;
+    transition: transform .2s linear;
+}
+
+#recentList li:hover .btn-close {
+    opacity: 1;
+    transition: transform .2s linear;
+}
+
+#recentList li:hover .btn-close:hover {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 1);
+}
+
+#saveUpExcel {
+    margin: 0 10px 10px 0;
+}
+
+#webserviceBtn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+.width600 {
+    width: 818px;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+
+}
+
+.width600 .btnImg {
+    width: 397px;
+    cursor: pointer;
+    height: 161px;
+    margin-bottom: 12px;
+}
+
+.width600 .btnImg1 {
+    height: 171px;
+    width:407px;
+}
+
+.d-body,
+.p-body {
+    color: #ccc;
+    background-color: #1e1e29;
+}
+
+.d-header,
+.p-header {
+    margin: 25px 40px;
+    height: 95px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    display: flex;
+}
+
+.d-header .d-header-left {
+    display: flex;
+    padding: 0 45px;
+    width: 85%;
+    background-color: #2f3247;
+    border-radius: 10px;
+}
+
+.d-header .d-header-left .d-click-btn {
+    padding-top: 12px;
+    width: 15%;
+    height: 100%;
+}
+
+.d-header .d-header-left .d-click-btn .btn-icon,
+.p-header .p-header-title .btn-icon {
+    margin-left: 3px;
+}
+
+.d-header .d-header-left .d-click-btn .btn-icon .dot,
+.p-header .p-header-title .btn-icon .dot {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #1e1e29;
+}
+
+.d-header .d-header-left .d-click-btn .btn-item {
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+}
+
+.d-header .d-header-right,
+.p-header .p-header-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 15%;
+}
+
+.d-header .d-header-right .setting-btn,
+.p-header .p-header-right .setting-btn {
+    margin-left: 20px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background-color: #404150;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.d-header .d-header-right .setting-btn img,
+.p-header .p-header-right .setting-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+.d-content,
+.p-content {
+    position: fixed;
+    left: 30px;
+    top: 150px;
+    right: 30px;
+    bottom: 20px;
+}
+
+.d-content p {
+    margin-bottom: 16px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.d-content .table {
+    color: #aaa;
+    border-color: #4b4b54;
+}
+
+.table>:not(caption)>*>* {
+    padding: 1.1rem .5rem;
+}
+
+.table-hover>tbody>tr:hover {
+    color: #efefef
+}
+
+.table thead tr th:first-child {
+    width: 33%;
+}
+
+.table tbody tr td {
+    vertical-align: middle;
+}
+
+.table tbody tr td .td-name {
+    display: flex;
+    flex-direction: column;
+}
+
+.table tbody tr td .td-name .td-name-tip {
+    margin-top: 8px;
+    color: #555;
+    font-size: 12px;
+}
+
+.p-header {
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+}
+
+.p-header .p-header-left {
+    display: flex;
+    align-items: baseline;
+}
+
+.p-header .p-header-left span {
+    margin-right: 22px;
+    font-size: 35px
+}
+
+.p-header .p-header-title {
+    display: flex;
+    align-items: flex-start;
+}
+
+.p-header .p-header-title span {
+    font-size: 16px;
+}
+
+.p-header .p-header-title span.active {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.p-header .p-header-title .btn-icon {
+    margin: 0 20px;
+}
+
+.p-header .p-header-title .btn-icon .dot {
+    margin-right: 5px;
+    width: 3px;
+    height: 3px;
+    border-radius: 25%;
+    background-color: #ccc;
+}
+
+.p-content {
+    bottom: 70px;
+}
+
+.p-content .step.hide {
+    display: none;
+}
+
+.p-content .step-one {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border: 2px dashed #666;
+    border-radius: 15px;
+}
+
+.p-content .step-two {
+    height: 100%;
+    background-color: #ccc;
+}
+
+.p-content .p-content-bottom {
+    margin-left: 20px;
+    display: flex;
+}
+
+.p-content .p-content-bottom .p-content-tips {
+    font-weight: bold;
+}
+
+.p-content .p-content-bottom span {
+    margin: 0 3px;
+}
+
+.p-footer {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    padding-top: 20px;
+    padding-bottom:20px;
+    background: #000;
+    display: flex;
+    z-index:999;
+    justify-content: center;
+    align-items: flex-end;
+    border-top: 1px solid #666;
+}
+
+.p-footer .btn {
+    height: 30px;
+    width: 100px;
+}
+
+.p-footer .model-step.hide,
+.p-footer .model-step .new-model-left.hide,
+.p-footer .model-step #preBtn.hide,
+.p-footer .model-step #nextBtn.hide {
+    display: none;
+}
+
+.p-footer .new-model {
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.p-footer .new-model .new-model-left {
+    display: flex;
+    position: relative;
+}
+
+.p-footer .new-model .new-model-left .glyphicon1 {
+    display: block;
+    color: #999;
+    width: 28px;
+    font-size: 20px;
+    line-height: 28px;
+    height: 28px;
+    background: #0d6efd;
+    border-radius: 50%;
+    cursor: pointer;
+    text-align: center;
+
+}
+
+.p-footer .new-model .new-model-left .glyphicon1:hover {
+    background: #004bb8;
+}
+
+.p-footer .new-model .new-model-left .new-model-input input {
+    padding: 6px 18px;
+    width: 300px;
+    border-radius: 25px;
+    height: 37px;
+    color: #ccc;
+    border: 2px solid #4b4c69;
+    background-color: transparent;
+    outline: none;
+}
+
+
+
+
+.p-footer .new-model .new-model-left .new-model-input input::-webkit-input-placeholder {
+    color: #9a9a9d;
+}
+
+.model-list-box {
+    width: calc(100vw - 200px);
+    overflow: auto;
+}
+
+.p-footer .new-model .new-model-left .model-list {
+    margin-left: 15px;
+    margin-right:15px;
+    display: flex;
+}
+
+.p-footer .new-model .new-model-left .model-list .model-list-item {
+    float: left;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    width: 150px;
+    height: 30px;
+    line-height: 30px;
+    flex-shrink:0;
+    border-radius: 25px;
+    background-color: #3c47b5;
+    cursor: pointer;
+    /* #28365b */
+}
+
+.p-footer .new-model .new-model-left .model-list .model-list-item.active {
+    background-color: #1d91fd
+}
+
+.p-footer .new-model .new-model-left .model-list .model-list-item .btn-icon {
+    display: flex;
+    flex-direction: column;
+}
+
+.p-footer .new-model .new-model-left .model-list .model-list-item .btn-icon .dot {
+    margin-top: 2px;
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #ccc;
+}
+
+.liName {
+    width: 110px;
+    margin-right: 10px;
+    padding: 0 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+.deleteLi {
+    cursor: pointer;
+    font-size: 18px;
+    width: 20px;
+    height: 20px;
+    line-height: 19px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    text-align: center;
+    margin-right: -15px;
+}
+
+.p-footer .new-model .new-model-left .model-list .model-list-item .deleteLi:hover {
+    color: red;
+    border: 1px solid red
+}
+
+.nullData {
+    text-align: center;
+}
+
+.nullData img {
+    width: 140px;
+    margin-top: 20px;
+}
+
+.nullData p {
+    margin-top: 14px;
+    font-size: 16px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.deleteLi1 {
+    cursor: pointer;
+}
+
+.deleteLi1:hover {
+    color: red;
+}
+
+.p-content {
+    color: #212529
+}
+.displayNone.hide{
+    display: none;
+}
+.fixed-table-loading{
+    display: none;
+}
+#htmlout #tableData{
+    color:#666;
+}
+.table>tbody>tr.success1,.table>tbody>tr.success1>td{
+    background: rgba(137, 253, 156,0.05)
+}
+.table>tbody>tr.success1:hover,.table>tbody>tr.success1:hover>td{
+    background: rgba(137, 253, 156,.1);
+    color:#333;
+}
+.success td,.info td{
+    font-size:14px;
+}
+.table>tbody>tr.info1,.table>tbody>tr.info1>td{
+    background: rgb(117, 213, 249,0.05);
+    color:#333;
+}
+.table>tbody>tr.info1:hover,.table>tbody>tr.info1:hover>td{
+    background: rgba(0,0,0,.05);
+    color:#333;
+}
+
+.renderGraph,#renderGraph  {
+    height: 500px;
+}
+#renderGraph{
+    background: #000;
+}
+#trBox tr{
+    cursor: pointer;
+}
+.lineSet {
+    position: absolute;
+    background: red;
+    height: 2px;
+    z-index: 4;
+    /*这里设置大于2，即可看到真正连线的其实是两个元素的中心坐标*/
+}
+.tttd{
+    width:6px;
+    position: absolute;
+    right:0;
+    transform: rotate(45deg);
+    height:6px;
+    top:-3px;
+    border-top: 2px solid red;
+    border-right: 2px solid red;
+}
+.width600 .btnImgStyle{
+    width: 397px;
+    cursor: pointer;
+    height: 161px;
+    margin-bottom: 24px;
+    background: rgba(55, 57, 81, 1);
+    border-radius: 10px;
+    padding:40px;
+}
+.leftImg{
+    width:80px;
+    height: 80px;
+    padding:16px 15px;
+    background: rgba(107, 184, 90, 1);
+    text-align: center;
+    border-radius: 6px;
+
+}
+.leftImgCsv{
+    background: rgba(91, 136, 222, 1);
+}
+.leftImgTxt{
+    background: rgba(181, 121, 216, 1)
+}
+.leftImgApi{
+    background: rgba(237, 106, 101, 1)
+}
+.leftImg img{
+    height:48px;
+    margin:auto;
+}
+.rightTxt{
+    width:220px;
+}
+.rightTxt0{
+    font-size:24px;
+    line-hieght:36px;
+    color:#fff;
+    font-weight:600;
+}
+.rightTxt1{
+    font-size:14px;
+    line-height:24px;
+    font-weight:500;
+    color:rgba(255, 255, 255, 0.8)
+}

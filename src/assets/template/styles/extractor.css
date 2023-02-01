@@ -1,0 +1,261 @@
+.l-header{
+    position: fixed;
+    right: 20px;
+    top: 0;
+    left: 20px;
+    height: 70px;
+    background-color: #121315;
+    z-index: 100;
+}
+.l-panel{
+    position: fixed;
+    right: 2px;
+    top: 70px;
+    width: 290px;
+    bottom: 2px;
+    background-color: rgba(79, 79, 80,1);
+    overflow: auto;
+    color: rgba(223, 223, 223,1);
+}
+#panelContent{
+    padding: 20px;
+}
+
+#tblHtml{
+    position: fixed;
+    left: 2px;
+    top: 70px;
+    right: 300px;
+    bottom: 2px;
+    background-color: #FFF;
+    /* border: 1px solid rgba(221, 221, 221,1); */
+}
+#tblHtml1{
+    position: fixed;
+    left: 2px;
+    top: 70px;
+    right: 2px;
+    bottom: 2px;
+    background-color: #FFF;
+}
+#panelContent .p-clip{
+    display: none;
+}
+#previewSplitStringToTable td{
+    border-width: 1px !important;
+}
+
+.f-model-list li .close-btn{
+    display: none;
+    padding: 0 2px 0 10px !important;
+}
+
+.f-model-list li:hover .close-btn{
+    display: block;
+}
+.f-model-list li .close-btn:hover{
+    color:rgba(6, 56, 192,1);
+}
+.f-model-list li .edit-btn{
+    display: none;
+    padding: 0 2px 0 10px !important;
+}
+.f-model-list li:hover .edit-btn{
+    display: block;
+}
+.f-model-list li .edit-btn:hover{
+    color:rgba(6, 56, 192,1);
+}
+.f-model-list li:hover .list-group-item-title{
+    color: rgba(6, 56, 192,1);
+    cursor: pointer;
+}
+.f-model-list li.active:hover .list-group-item-title{
+    color:white
+}
+
+.f-clear-tag{
+    color: rgba(214, 214, 214,1);
+}
+.f-clear-tag:hover{
+    color: rgba(255, 255, 255,1);
+}
+
+/*meta data*/
+.extractor_table{
+    padding: 20px;
+    overflow: auto;
+    position: relative;
+}
+.extractor_table .sheetName{
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+.extractor_table table{
+    border-top: 1px solid rgba(223, 223, 223,1);
+    border-left: 1px solid rgba(223, 223, 223,1);
+    width: 100%;
+    background-color:#FFFFFF;
+}
+.extractor_table table td{
+    border-right: 1px solid rgba(223, 223, 223,1);
+    border-bottom: 1px solid rgba(223, 223, 223,1);
+    padding: 3px 5px;
+    position: relative;
+}
+.extractor_table table td{
+    user-select: text;
+}
+.extractor_table table td:not(.headline){
+    user-select: text;
+}
+
+.extractor_table table td.active{
+    outline: 2px dotted #1878ff;
+    z-index: 9;
+}
+.extractor_table table tr>td:first-child{
+    width: 30px;
+    user-select: text;
+}
+.headline{
+    font-size: 12px;
+    text-align: center;
+    background-color:#eff2f7;
+    color: #545f6e;
+    font-weight:200;
+}
+.headline-light{
+    background-color:#fafcff;
+    color: #2c6abf;
+}
+
+.extractor_table table td._TYPE_::after{
+    font-size: 10px;
+    color: white;
+    background-color: #1878ff;
+    border-radius: 4px;
+    display: block;
+    position: absolute;
+    right: -2px;
+    top: -2px;
+    padding: 1px 6px;
+    z-index: 999;
+}
+.extractor_table table td._TYPE_Int::after{
+    content:'整数';
+}
+.extractor_table table td._TYPE_Float::after{
+    content:'数字';
+}
+.extractor_table table td._TYPE_Bool::after{
+    content:'是否';
+}
+.extractor_table table td._TYPE_Date::after{
+    content:'日期';
+}
+.extractor_table table td._TYPE_DateTime::after{
+    content:'时间';
+}
+
+
+
+._EM_start{
+    position: relative;
+    border-top: 2px solid rgba(253, 90, 62,1) !important;
+    border-left: 2px solid rgba(253, 90, 62,1) !important;
+}
+._EM_start::before{
+    content:'';
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background-color: rgba(253, 90, 62,1);
+    position: absolute;
+    left: -4px;
+    top: -4px;
+    z-index: 99;
+}
+._EM_key{
+    background-color: rgba(96, 166, 255,1);
+    font-weight: bold;
+    color:white;
+}
+._EM_mid_key{
+    background-color: rgba(148, 255, 250,1);
+    font-weight: bold;
+    color:white;
+}
+._EM_value{
+    background-color: rgba(100, 191, 218,1);
+    color:white;
+}
+._EM_value_start{
+    border-top: 2px solid rgba(5, 145, 0,1) !important;
+    border-left: 2px solid rgba(5, 145, 0,1) !important;
+}
+._EM_value_end{
+    border-right: 2px solid rgba(5, 145, 0,1) !important;
+    border-bottom: 2px solid rgba(5, 145, 0,1) !important;
+}
+._EM_loop_end{
+    border-top:4px dashed red;
+}
+._EM_selected_spical_cell, ._EM_selected_virtual_key_cell{
+    background-size: 8px 8px;
+    background-image: url("../images/p_grid2.svg");
+}
+._EM_virtual_key{
+    position: relative;
+}
+._EM_virtual_key::before{
+    content:'';
+    height: 8px;
+    border-radius: 4px;
+    background-color: rgba(148, 185, 255,1);
+    position: absolute;
+    left: 10px;
+    top: -1px;
+    right: 10px;
+    z-index: 90;
+}
+._EM_key_standard{
+    background-color: #FFC420;
+    font-weight: bold;
+}
+._EM_key_standard1{
+    background-color: #65e4f8;
+    font-weight: bold;
+}
+
+.extractor_table td{
+    position: relative;
+}
+.leaders{
+    position: absolute;
+    width:2px;
+    height:2px;
+    left:0;
+    bottom: 0;
+    right:0;
+    top:0;
+    margin:auto;
+}
+#alertBox{
+    position: fixed;
+    width:300px;
+    top:10px;
+    left:0;
+    right:0;
+    margin:auto;
+    z-index:999999;
+}
+.InputStyle {
+    top: 0;
+}
+.myBoxCanvas{
+    z-index:-1;
+    position: absolute;
+}
