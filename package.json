@@ -1,5 +1,5 @@
 {
-  "name": "baiyu",
+  "name": "rkatsiteli",
   "version": "1.9.3",
   "description": ":)",
   "main": "./src/remote/index.js",
@@ -12,8 +12,8 @@
     "build": "electron-builder -mw"
   },
   "build": {
-    "appId": "com.Kindling.Baiyu",
-    "productName": "BaiYu",
+    "appId": "com.Kindling.rkatsiteli",
+    "productName": "rkatsiteli",
     "copyright": "Shanghai Kindling Information Technology Co., Ltd",
     "asar": true,
     "win": {
@@ -46,11 +46,11 @@
     ]
   },
   "keywords": [
-    "qianiao",
+    "rkatsiteli",
     "ETL",
     "designer"
   ],
-  "author": "Fangyan",
+  "author": "Li",
   "license": "ISC",
   "devDependencies": {
     "electron": "^9.2.0",
